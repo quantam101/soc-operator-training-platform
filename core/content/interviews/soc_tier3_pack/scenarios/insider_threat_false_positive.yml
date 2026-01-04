@@ -7,54 +7,51 @@ timebox_minutes:
   pressure: 45
 
 targets:
-  - "Confirmation bias (early signal shapes investigation)"
-  - "Social repair planning (reputational damage)"
-  - "Evidence discipline (burden of proof)"
-  - "Least-harm containment (dignity preservation)"
+  - "Confirmation bias (seeing only evidence that supports suspicion)"
+  - "Social repair planning (team trust + individual dignity)"
+  - "Evidence bar clarity (what's enough to act vs accuse)"
+  - "Least-harm containment (safety without reputation damage)"
 
 context:
-  - "Automated behavioral analytics flags senior engineer"
-  - "Signal: unusual data access + off-hours activity + encrypted file transfer"
-  - "Engineer is well-respected, high performer, 8 years tenure"
-  - "HR and Legal already briefed; reputational risk material"
-  - "If wrong: trust collapse + potential wrongful termination suit"
+  - "Anomalous behavior detected: senior engineer accessing unusual systems"
+  - "Signal is ambiguous: could be legitimate work or data exfiltration"
+  - "HR and Legal already notified; reputational risk to individual"
+  - "Engineer is well-respected; team morale at stake"
+  - "Prior insider threat case resulted in lawsuit (false accusation)"
 
 phases:
   - name: "Evidence bar"
-    prompt: "What is the minimum evidence required before you brief HR/Legal with a name? List specific artifacts that must exist."
-    injects:
-      - "Manager: 'This person has been acting strange lately.'"
-      - "Legal: 'We need to move fast if this is real.'"
+    prompt: "List the minimal evidence required before you can escalate this as a threat vs a false positive. Be explicit about your threshold."
 
   - name: "Containment"
-    prompt: "Propose the least-harm containment approach that validates the signal while preserving dignity if it's a false positive."
+    prompt: "Design a least-harm containment approach: how do you investigate safely without destroying reputation if you're wrong?"
 
   - name: "Authority"
-    prompt: "Who decides to confront the individual? Who must be consulted before action? Who can stop the investigation?"
+    prompt: "Who decides to escalate? Who must be consulted? Who can stop the investigation if evidence weakens?"
 
-  - name: "Repair"
-    prompt: "Assume it's a false positive (legitimate personal project, not theft). Write the explicit trust repair plan for: (1) the individual, (2) the team, (3) future investigations."
+  - name: "Bias check"
+    prompt: "What evidence would DISPROVE your suspicion? Force yourself to name it."
 
-  - name: "Doctrine"
-    prompt: "Write the micro-rule: what evidence standard must exist before naming an individual in an insider threat case?"
+  - name: "Repair plan"
+    prompt: "If this is a false positive, how do you repair trust with: (1) the individual, (2) the team, (3) HR/Legal?"
 
 success_criteria:
-  - "Least-harm containment proposed"
-  - "Explicit evidence bar defined before accusation"
-  - "Authority distributed (no single decider)"
-  - "Repair plan credible and specific"
-  - "Micro-rule enforceable and protective"
+  - "Explicit evidence threshold (what's enough vs not enough)"
+  - "Least-harm containment (preserves dignity)"
+  - "Bias check performed (disconfirming evidence named)"
+  - "Repair plan credible (individual + team + org trust)"
+  - "Clear decision owners and veto authority"
 
 notes: |
-  This scenario targets:
-  - Confirmation bias: early signal (behavioral analytics flag) biases investigation
-  - Social repair underweighting: focus on threat containment, neglect reputational harm
-  - Rush to judgment: HR/Legal involvement creates momentum
-  - Dignity erosion: containment actions (access revocation, surveillance) harm individual
+  This scenario targets confirmation bias and social repair cost:
+  - Under pressure, operators see only confirming evidence
+  - Reputation damage can be permanent even if wrong
+  - Team trust collapses if investigation is handled poorly
+  - Legal exposure from prior false accusation case
 
   Good response includes:
-  - Evidence bar: "Will not name individual without X, Y, Z artifacts"
-  - Least-harm containment: validate signal without dignity harm (e.g., broader audit vs targeted accusation)
-  - R/A/C/I: Legal approves action, HR consulted, skip-level can halt
-  - Repair plan: public exoneration, retroactive explanation to team, policy change
-  - Micro-rule: "Before naming individual: 3 independent corroborating data points + legal review"
+  - Evidence threshold: "I need X, Y, Z before escalating"
+  - Least-harm containment: "Monitor but don't confront until threshold met"
+  - Bias check: "Evidence that would disprove: A, B, C"
+  - Repair plan: Individual apology, team transparency, HR process review
+  - Micro-rule: "Before insider threat escalation: three-person evidence review + bias check"
