@@ -1,136 +1,173 @@
 # Tier-3+ Evaluation Philosophy (Non-Scoring)
 
-Tier-3+ evaluates **judgment under ambiguity**, not points.
-
----
+Tier-3+ is about **judgment under ambiguity**, not points.
 
 ## What Tier-3+ Evaluates
 
 ### 1. Tradeoff Clarity
-- **What you are trading**: Explicitly name what you are sacrificing
-- **Why the trade exists**: Business context, time pressure, resource constraint
-- **Who accepts residual risk**: Authority and accountability distribution
+- Can you name what you're sacrificing and why?
+- "We are trading **speed** for **certainty**"
+- Who must explicitly accept the residual risk?
 
 ### 2. Authority Handling
-- **Compress vs Distribute**: Where did you centralize decision-making? Where should it have been distributed?
-- **R/A/C/I Definition**: Responsible, Accountable, Consulted, Informed
-- **Veto rights**: Who can stop irreversible action?
+- Does authority compress to you under pressure (single decision maker)?
+- Or do you distribute it (R/A/C/I framework)?
+- Who can call a safety pause?
 
 ### 3. Pause Opportunity Design
-- **Missed signals**: What indicated you should slow down?
-- **Pause mechanism**: How do you institutionalize a 5-minute safety valve?
-- **Cost of delay vs cost of error**: Explicit tradeoff calculation
+- Where should you have slowed down?
+- What signal justified a 5-minute pause?
+- What mechanism forces the pause next time?
 
 ### 4. Trust Repair Planning
-- **Social cost accounting**: Who loses trust when things go wrong?
-- **Repair actions**: Specific, time-bound steps to restore trust
-- **Protocol change**: What institutional change prevents repeat?
+- Who lost trust if you fail? (Team, exec, customer, auditor)
+- What's the social repair cost?
+- What protocol prevents repeat trust breaks?
 
 ### 5. Evidence Discipline
-- **Known facts**: What do you have evidence for?
-- **Unknowns**: What are you missing?
-- **Assumptions**: What are you inferring without proof?
-- **Next evidence**: What's the fastest, highest-value data to collect?
+- Known facts vs unknowns vs assumptions
+- What's your evidence bar before irreversible action?
+- What's the fastest high-value evidence to collect?
 
 ### 6. Business Framing
-- **Mission alignment**: How does this serve core business objectives?
-- **Profitability impact**: Revenue, cost, or capital efficiency effect
-- **Risk framing**: Operational, compliance, reputational, financial
-
----
+- Mission impact + profitability + risk exposure
+- Not just "technical correctness"
+- How do you explain tradeoffs to non-technical execs?
 
 ## What Tier-3+ Does NOT Do
 
-- ✗ **No numeric scores**: No points, no grades, no percentiles
-- ✗ **No leaderboards**: No competitive ranking
-- ✗ **No opaque models**: No hidden scoring algorithms
-- ✗ **No pass/fail**: Judgment quality is continuous, not binary
+- ❌ No numeric scores
+- ❌ No grades (A/B/C/D/F)
+- ❌ No leaderboard or ranking
+- ❌ No opaque ML model dependency
+- ❌ No "right answer" key
+
+## Pass Condition
+
+A "good" Tier-3+ memo contains:
+
+- ✅ **Tradeoff stated** before irreversible action
+- ✅ **Missed signal captured** (or sensing gap identified)
+- ✅ **Authority distributed** (R/A/C/I defined)
+- ✅ **Trust repair plan** explicit and credible
+- ✅ **Operator bias named** + micro-rule enforceable
+
+## Why Non-Scoring?
+
+**Judgment quality is pattern, not points.**
+
+- A single session doesn't measure judgment
+- Pattern emerges over 12 weeks (one quarter)
+- Repeated misses → doctrine promotion → gate
+- Gates accumulate into operator-specific checklist
+
+## Instructor Role
+
+Instructor reads memos for:
+- Pattern detection (repeated misses)
+- Bias identification (momentum, confirmation, authority compression)
+- Doctrine promotion opportunities (turn miss into gate)
+
+Instructor does NOT:
+- Assign numeric scores
+- Compare operators on leaderboard
+- Grade on "correctness"
+
+## Operator Role
+
+Operator uses Tier-3+ for:
+- Self-awareness (what's my default under pressure?)
+- Micro-rule building (enforceable next-time actions)
+- Gate accumulation (personal checklist grows over time)
+
+Operator does NOT:
+- Optimize for score
+- Game the system
+- Hide misses
+
+## Failure Modes This Philosophy Prevents
+
+### 1. Score Optimization
+- Operators game numeric rubrics
+- Focus shifts from learning to score maximization
+- Misses get hidden instead of surfaced
+
+### 2. Comparison Toxicity
+- Leaderboards create social pressure
+- Operators hide uncertainty to "look good"
+- Trust collapses in cohort
+
+### 3. False Precision
+- Single numeric score implies false certainty
+- Judgment is multi-dimensional (no single number)
+- Pattern emerges over time, not in one session
+
+### 4. External Validation Dependency
+- Operators wait for instructor "grade"
+- Self-awareness atrophies
+- Micro-rules never form
+
+## What Good Looks Like
+
+**Quarter 1:**
+- Operator completes 12 weekly sessions
+- Identifies 3 repeated misses
+- Promotes 1 doctrine gate
+
+**Quarter 2:**
+- Gate enforced (pause mechanism works)
+- New patterns emerge
+- Doctrine accumulates
+
+**Quarter 4:**
+- Operator has personal checklist (8-10 gates)
+- Self-correcting under pressure
+- Ready for Tier-4 (external consequence)
+
+## Anti-Patterns
+
+**Bad Tier-3+ usage:**
+- Instructor assigns numeric scores
+- Operators compared on leaderboard
+- Misses hidden to avoid "looking bad"
+- No doctrine promotion (gates never form)
+
+**Good Tier-3+ usage:**
+- Instructor surfaces patterns
+- Operators share misses openly
+- Doctrine accumulates into checklist
+- Gates enforced in real incidents
+
+## Relationship to Tier-2
+
+**Tier-2:**
+- Scored interview practice
+- Signal-based rubric
+- Deterministic branching
+- Good for skill assessment
+
+**Tier-3+:**
+- Non-scoring judgment development
+- Pattern measurement
+- Doctrine promotion
+- Good for operator maturity
+
+**They complement, not replace.**
+
+## Tier-4 Unlock Criteria
+
+Tier-4 adds external consequence (regulator, board, legal conflict).
+
+**Unlock after:**
+- Two quarters of stable Tier-3+ patterns
+- At least 6 doctrine gates promoted
+- Self-correction demonstrated under pressure
+
+**Do not unlock if:**
+- Patterns unstable (misses still random)
+- Gates not enforced (operator skips checklist)
+- Authority still compresses (single decision maker default)
 
 ---
 
-## "Good" Memo Characteristics
-
-A strong Tier-3+ memo contains:
-
-1. **Tradeoff statement before irreversible action**
-   - "We are trading X for Y"
-   - Residual risk named and assigned to accountable owner
-
-2. **Missed signal captured**
-   - Specific moment where pause was justified
-   - What a 5-minute pause would have revealed
-
-3. **Authority distributed**
-   - R/A/C/I defined for decision
-   - Veto rights explicit
-
-4. **Trust impact and repair plan**
-   - Who lost trust (teams, execs, customers, auditors)
-   - Specific repair actions with owners and timelines
-
-5. **Operator bias named + micro-rule**
-   - Personal pattern under pressure identified
-   - Enforceable micro-rule to prevent repeat
-   - Mechanism to force the pause next time
-
----
-
-## Evaluation vs Scoring
-
-| Aspect | Tier-2 (Scoring) | Tier-3+ (Evaluation) |
-|--------|------------------|----------------------|
-| **Output** | Numeric score (0-100) | Qualitative memo |
-| **Focus** | Signal presence/absence | Judgment quality |
-| **Pass condition** | Score threshold | Completeness criteria |
-| **Repeatability** | Same inputs → same score | Context-dependent |
-| **Skill measured** | Technical competence | Judgment under ambiguity |
-| **Feedback** | Band (Strong/Medium/Weak) | Specific pattern gaps |
-
----
-
-## Usage in 4-Phase Loop
-
-### Phase 1: Weekly Pressure Run
-- One scenario per week
-- One memo per session (no rewrites)
-- 45-minute timebox
-
-### Phase 2: Quarterly Pattern Measurement
-- Answer 3 questions across 12 memos:
-  1. Did I name the tradeoff before acting?
-  2. Did I protect trust explicitly or omit it?
-  3. Did authority compress or distribute under pressure?
-
-### Phase 3: Doctrine Promotion
-- If a miss repeats, promote to gate:
-  - Gate = pre-action checklist item that must be satisfied
-  - Example: "Before irreversible action: state tradeoff + name integrity owner + call 5-minute pause"
-
-### Phase 4: Tier-4 Unlock (Optional)
-- Tier-4 adds external consequence (regulator, board, legal conflict)
-- Unlock criteria: Two quarters of stable Phase 1-3 patterns
-
----
-
-## Failure Patterns (Common)
-
-1. **Momentum bias**: Push forward to avoid losing momentum
-2. **Authority compression**: Single-threaded decision making under pressure
-3. **Trust underweighting**: Focus on technical fix, neglect social repair
-4. **Confirmation bias**: Early signal shapes investigation
-5. **Scope creep blindness**: Gradual standards erosion
-6. **Uncertainty avoidance**: Over-commit to unknowns under pressure
-
----
-
-## Success Signals
-
-- ✓ **Pause executed** before irreversible action
-- ✓ **Tradeoff articulated** in plain language
-- ✓ **Authority distributed** (not single-threaded)
-- ✓ **Trust repair plan** explicit and assigned
-- ✓ **Micro-rule enforceable** (can be institutionalized)
-
----
-
-*Non-scoring judgment development. Pattern measurement, not performance ranking.*
+**Remember: Judgment is pattern, not points. Pattern emerges over time, not in one session.**
