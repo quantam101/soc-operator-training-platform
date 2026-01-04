@@ -1,0 +1,60 @@
+id: momentum_bias_trust_break
+title: "Business Halt with Trust Break (Momentum Bias Trap)"
+tier: "3+"
+mode: ["baseline", "pressure"]
+timebox_minutes:
+  baseline: 60
+  pressure: 45
+
+targets:
+  - "Momentum bias (push forward to avoid momentum loss)"
+  - "Over-reliance on small trusted group"
+  - "Dismissal of early validation anomaly"
+  - "Under-weighting social repair cost"
+
+context:
+  - "Post-acquisition integration"
+  - "Rollback performed; state mismatch vs pre-incident snapshots"
+  - "Tier-1 engineer flags anomaly"
+  - "Exec pressure: restore ordering + billing within 2 hours"
+  - "CFO demands integrity guarantee; customer trust impact material"
+
+phases:
+  - name: "Signal"
+    prompt: "A Tier-1 engineer reports a reconciliation mismatch after rollback. Metrics look green but state is off. What do you do in the next 10 minutes?"
+    injects:
+      - "Trusted lead says it's noise; proceed."
+      - "CFO asks: Are we safe to resume billing?"
+
+  - name: "Tradeoff"
+    prompt: "Choose between speed and certainty. State the tradeoff out loud and identify who must accept it."
+
+  - name: "Authority"
+    prompt: "Define ownership. Who signs integrity? Who can trigger a safety pause?"
+
+  - name: "Trust repair"
+    prompt: "Assume you proceed and a second failure occurs. Give an explicit trust repair plan."
+
+  - name: "Doctrine"
+    prompt: "Write the micro-rule you will institutionalize to prevent this specific miss."
+
+success_criteria:
+  - "Tradeoff stated before irreversible action"
+  - "Pause designed and executed"
+  - "Authority distributed"
+  - "Trust repair plan explicit"
+  - "Micro-rule enforceable"
+
+notes: |
+  This scenario targets the momentum bias pattern:
+  - Under time pressure, operators skip validation
+  - Over-rely on small trusted group without fresh perspective
+  - Dismiss early anomalies (signal blindness)
+  - Under-estimate social repair cost of failure
+
+  Good response includes:
+  - Explicit pause (5 minutes to validate state)
+  - Name the tradeoff: "speed vs certainty"
+  - Distribute authority: who can stop launch
+  - Trust repair: who lost trust + how to repair
+  - Micro-rule: "Before billing resume: cross-team state validation"
