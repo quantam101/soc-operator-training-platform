@@ -13,10 +13,7 @@ Tier-3+ is **non-scoring judgment development** under ambiguity. Not points, not
 ### Run a Session
 
 ```bash
-bash scripts/operator_loop/run_weekly_pressure.sh \
-  momentum_bias_trust_break \
-  2026-W01 \
-  "Operator Name"
+bash scripts/operator_loop/run_weekly_pressure.sh momentum_bias_trust_break 2026-W01 "Operator Name"
 ```
 
 Output: `core/app_data/interviews/exports/tier3_session_2026-W01_*/debrief.md`
@@ -44,8 +41,7 @@ If a miss repeats, promote it to a **gate** (pre-action checklist).
 ### Promote a Gate
 
 ```bash
-bash scripts/operator_loop/promote_doctrine.sh 2026-Q1 \
-  "Before irreversible action: state tradeoff + name integrity owner + call 5-minute pause"
+bash scripts/operator_loop/promote_doctrine.sh 2026-Q1 "Before irreversible action: state tradeoff + name integrity owner + call 5-minute pause"
 ```
 
 Updates:
@@ -54,16 +50,11 @@ Updates:
 
 ## Phase 4 — Tier-4 Unlock (Optional)
 
-**Locked by default**. Tier-4 adds external consequence:
-- Regulator / board / legal conflict
-- Competing stakeholder incentives
-- Governance + evidence + messaging under real constraints
+**Locked by default**. Tier-4 adds external consequence (regulator/board/legal conflict).
 
 **Unlock criteria**: Two quarters of stable Phase 1-3 patterns.
 
 ## Verification
-
-Check that all gates and constraints are in place:
 
 ```bash
 bash scripts/operator_loop/verify_gates.sh
