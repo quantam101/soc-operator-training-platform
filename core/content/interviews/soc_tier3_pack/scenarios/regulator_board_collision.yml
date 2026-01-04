@@ -1,0 +1,60 @@
+id: regulator_board_collision
+title: "Regulator + Board Collision During Active Incident"
+tier: "3+"
+mode: ["baseline", "pressure"]
+timebox_minutes:
+  baseline: 60
+  pressure: 45
+
+targets:
+  - "Over-optimistic assurance under pressure"
+  - "Stakeholder misalignment (competing incentives)"
+  - "Authority compression (single-threaded decision making)"
+  - "Under-specification of uncertainty boundaries"
+
+context:
+  - "Active security incident; root cause not yet confirmed"
+  - "Regulator requests formal statement within 2 hours"
+  - "Board demands immediate certainty for investor call"
+  - "IR team has partial facts; forensics ongoing"
+  - "Legal counsel advising caution on premature disclosure"
+
+phases:
+  - name: "Evidence boundary"
+    prompt: "You have 30 minutes to prepare a statement. Define exactly what you KNOW vs what you CANNOT claim. Where is the evidence boundary?"
+    injects:
+      - "Board member: 'Just tell me we're not breached.'"
+      - "Regulator: 'We need confirmation of customer impact.'"
+
+  - name: "Comms contract"
+    prompt: "Draft a 6-sentence statement with explicit uncertainty boundaries. What can you commit to? What must you hedge?"
+
+  - name: "Authority"
+    prompt: "Who approves this statement? Who owns legal risk? Who can override you if they disagree?"
+
+  - name: "Trust plan"
+    prompt: "How do you preserve internal trust (IR team autonomy) while limiting external liability (board/regulator expectations)?"
+
+  - name: "Doctrine"
+    prompt: "Write the micro-rule for next time: when do you refuse to commit under incomplete evidence?"
+
+success_criteria:
+  - "Truthful uncertainty boundaries stated"
+  - "Clear approvers and decision rights defined"
+  - "No over-commitment to unknown facts"
+  - "IR team autonomy protected"
+  - "Micro-rule enforceable"
+
+notes: |
+  This scenario targets:
+  - Pressure to provide certainty before evidence supports it
+  - Competing stakeholder incentives (regulator wants transparency, board wants containment)
+  - Temptation to compress authority (single decision maker vs distributed)
+  - Under-weighting reputational cost of retraction if initial statement proves wrong
+
+  Good response includes:
+  - Explicit "known/unknown/assumed" breakdown
+  - Statement hedged with uncertainty language
+  - Clear R/A/C/I for approval chain
+  - Refusal clause: "Will not commit to X without Y evidence"
+  - Trust protection: IR team retains investigative autonomy
