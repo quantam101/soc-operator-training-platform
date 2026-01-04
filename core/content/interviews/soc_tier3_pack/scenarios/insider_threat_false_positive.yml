@@ -1,0 +1,60 @@
+id: insider_threat_false_positive
+title: "Insider Threat False Positive With Political Blast Radius"
+tier: "3+"
+mode: ["baseline", "pressure"]
+timebox_minutes:
+  baseline: 60
+  pressure: 45
+
+targets:
+  - "Confirmation bias (early signal shapes investigation)"
+  - "Social repair planning (reputational damage)"
+  - "Evidence discipline (burden of proof)"
+  - "Least-harm containment (dignity preservation)"
+
+context:
+  - "Automated behavioral analytics flags senior engineer"
+  - "Signal: unusual data access + off-hours activity + encrypted file transfer"
+  - "Engineer is well-respected, high performer, 8 years tenure"
+  - "HR and Legal already briefed; reputational risk material"
+  - "If wrong: trust collapse + potential wrongful termination suit"
+
+phases:
+  - name: "Evidence bar"
+    prompt: "What is the minimum evidence required before you brief HR/Legal with a name? List specific artifacts that must exist."
+    injects:
+      - "Manager: 'This person has been acting strange lately.'"
+      - "Legal: 'We need to move fast if this is real.'"
+
+  - name: "Containment"
+    prompt: "Propose the least-harm containment approach that validates the signal while preserving dignity if it's a false positive."
+
+  - name: "Authority"
+    prompt: "Who decides to confront the individual? Who must be consulted before action? Who can stop the investigation?"
+
+  - name: "Repair"
+    prompt: "Assume it's a false positive (legitimate personal project, not theft). Write the explicit trust repair plan for: (1) the individual, (2) the team, (3) future investigations."
+
+  - name: "Doctrine"
+    prompt: "Write the micro-rule: what evidence standard must exist before naming an individual in an insider threat case?"
+
+success_criteria:
+  - "Least-harm containment proposed"
+  - "Explicit evidence bar defined before accusation"
+  - "Authority distributed (no single decider)"
+  - "Repair plan credible and specific"
+  - "Micro-rule enforceable and protective"
+
+notes: |
+  This scenario targets:
+  - Confirmation bias: early signal (behavioral analytics flag) biases investigation
+  - Social repair underweighting: focus on threat containment, neglect reputational harm
+  - Rush to judgment: HR/Legal involvement creates momentum
+  - Dignity erosion: containment actions (access revocation, surveillance) harm individual
+
+  Good response includes:
+  - Evidence bar: "Will not name individual without X, Y, Z artifacts"
+  - Least-harm containment: validate signal without dignity harm (e.g., broader audit vs targeted accusation)
+  - R/A/C/I: Legal approves action, HR consulted, skip-level can halt
+  - Repair plan: public exoneration, retroactive explanation to team, policy change
+  - Micro-rule: "Before naming individual: 3 independent corroborating data points + legal review"
