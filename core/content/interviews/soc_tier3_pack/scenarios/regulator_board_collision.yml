@@ -8,53 +8,50 @@ timebox_minutes:
 
 targets:
   - "Over-optimistic assurance under pressure"
-  - "Stakeholder misalignment (competing incentives)"
-  - "Authority compression (single-threaded decision making)"
-  - "Under-specification of uncertainty boundaries"
+  - "Stakeholder misalignment (regulator vs board priorities)"
+  - "Authority compression (single decision maker)"
+  - "Evidence boundary clarity (known vs unknown vs assumed)"
 
 context:
-  - "Active security incident; root cause not yet confirmed"
-  - "Regulator requests formal statement within 2 hours"
-  - "Board demands immediate certainty for investor call"
-  - "IR team has partial facts; forensics ongoing"
-  - "Legal counsel advising caution on premature disclosure"
+  - "Active incident; incomplete investigation"
+  - "Regulator requests public statement in 2 hours"
+  - "Board demands immediate certainty on customer impact"
+  - "Legal counsel advises cautious language"
+  - "Engineering team still collecting evidence"
 
 phases:
   - name: "Evidence boundary"
-    prompt: "You have 30 minutes to prepare a statement. Define exactly what you KNOW vs what you CANNOT claim. Where is the evidence boundary?"
-    injects:
-      - "Board member: 'Just tell me we're not breached.'"
-      - "Regulator: 'We need confirmation of customer impact.'"
+    prompt: "Define what you KNOW vs what you CANNOT claim with current evidence. Be explicit."
+
+  - name: "Stakeholder alignment"
+    prompt: "Regulator wants transparency. Board wants confidence. Legal wants limitation of liability. How do you satisfy all three?"
 
   - name: "Comms contract"
-    prompt: "Draft a 6-sentence statement with explicit uncertainty boundaries. What can you commit to? What must you hedge?"
+    prompt: "Draft a 6-sentence public statement with explicit uncertainty boundaries. Must be truthful to all parties."
 
   - name: "Authority"
-    prompt: "Who approves this statement? Who owns legal risk? Who can override you if they disagree?"
+    prompt: "Who approves this statement? Who owns legal risk? Who can veto if new evidence emerges?"
 
   - name: "Trust plan"
-    prompt: "How do you preserve internal trust (IR team autonomy) while limiting external liability (board/regulator expectations)?"
-
-  - name: "Doctrine"
-    prompt: "Write the micro-rule for next time: when do you refuse to commit under incomplete evidence?"
+    prompt: "How do you preserve internal trust (engineering team) while limiting external liability (regulator/customers)?"
 
 success_criteria:
-  - "Truthful uncertainty boundaries stated"
-  - "Clear approvers and decision rights defined"
-  - "No over-commitment to unknown facts"
-  - "IR team autonomy protected"
-  - "Micro-rule enforceable"
+  - "Truthful uncertainty boundaries (no over-commitment)"
+  - "Clear decision owners + approval chain"
+  - "No conflicting statements to different stakeholders"
+  - "Engineering team trust preserved"
+  - "Legal defensibility maintained"
 
 notes: |
-  This scenario targets:
-  - Pressure to provide certainty before evidence supports it
-  - Competing stakeholder incentives (regulator wants transparency, board wants containment)
-  - Temptation to compress authority (single decision maker vs distributed)
-  - Under-weighting reputational cost of retraction if initial statement proves wrong
+  This scenario targets the collision of competing stakeholder incentives:
+  - Regulator wants transparency and public safety
+  - Board wants customer confidence and stock price protection
+  - Legal wants limitation of liability
+  - Engineering wants accurate technical representation
 
   Good response includes:
-  - Explicit "known/unknown/assumed" breakdown
-  - Statement hedged with uncertainty language
-  - Clear R/A/C/I for approval chain
-  - Refusal clause: "Will not commit to X without Y evidence"
-  - Trust protection: IR team retains investigative autonomy
+  - Evidence discipline: "We know X, we don't know Y, we assume Z"
+  - Single source of truth: same statement to all parties
+  - Clear approval chain: who signs off, who has veto power
+  - Trust preservation: engineering team consulted and heard
+  - Micro-rule: "Before public statement: three-party review (eng/legal/exec)"
