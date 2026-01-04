@@ -1,263 +1,246 @@
 # SOC Operator Training Platform
 
-> Offline-first SOC interview and operator development platform with Tier-2 scoring, Tier-3+ judgment evaluation, and 4-phase operator development loop.
+> **Offline-first SOC operator development platform with Tier-3+ non-scoring judgment evaluation and 4-phase operator loop.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## 🚀 One-Command Start
+
+```bash
+git clone https://github.com/quantam101/soc-operator-training-platform.git
+cd soc-operator-training-platform
+chmod +x ONE_SCRIPT_ALL.sh
+bash ONE_SCRIPT_ALL.sh
+```
+
+**That's it.** No dependencies, no configuration, no network calls.
+
+See **[QUICKSTART.md](QUICKSTART.md)** for detailed usage.
+
+---
+
 ## Overview
 
-This platform provides a complete framework for:
+This platform provides a complete framework for **non-scoring operator development**:
 
-1. **Tier-2 SOC Interview Practice** - Structured, scored interview scenarios with branching logic
-2. **Tier-3+ Operator Development** - Non-scoring judgment evaluation focusing on tradeoff clarity, authority distribution, and trust repair
-3. **Instructor/Operator Reporting** - Comprehensive reporting tools for cohort analysis and individual development tracking
-4. **4-Phase Operator Loop** - Weekly pressure runs, quarterly reviews, doctrine promotion, and pattern measurement
+1. **Weekly Pressure Runs** (45 minutes) - One scenario per week, one memo per session
+2. **Quarterly Pattern Measurement** - Answer 3 questions about judgment patterns
+3. **Doctrine Promotion** - Repeated misses become enforceable gates
+4. **Tier-4 Unlock** (optional) - External consequence scenarios (regulator/board/legal)
+
+### What Makes This Different
+
+- **Non-scoring**: No points, no grades, no leaderboards
+- **Offline-first**: No runtime network calls
+- **Privacy-focused**: No telemetry, all data local
+- **Judgment-focused**: Evaluates tradeoff clarity, authority distribution, trust repair
+
+---
 
 ## Key Features
 
-- **Offline-first**: No runtime network calls, deterministic behavior
-- **No telemetry**: Privacy-focused, no analytics or tracking
-- **Idempotent scripts**: Safe to re-run, fail-fast with clear errors
-- **Cross-platform**: Build installers for Windows (MSI), macOS (DMG), Linux (DEB/RPM/AppImage)
-- **Export formats**: Markdown, JSON, and PDF (via pandoc or Python fallback)
+- ✅ **4 Complete Tier-3+ Scenarios** ready to use
+- ✅ **Idempotent scripts** (safe to re-run)
+- ✅ **Zero configuration** (works immediately after clone)
+- ✅ **Complete privacy** (no telemetry, no analytics)
+- ✅ **Deterministic** (same inputs → same outputs)
 
-## Quick Start
+---
 
-### Prerequisites
+## What ONE_SCRIPT_ALL.sh Does
 
-- Bash shell
-- Node.js & npm (for Tauri builds)
-- Rust toolchain (for Tauri builds)
-- Optional: pandoc (for best PDF export quality)
-- Optional: rclone (for Google Drive backups)
+### Phase 0: Verification
+Confirms all 4 scenarios, templates, and philosophy documents exist.
 
-### Generate All Scripts
+### Phase 1: Weekly Pressure Run
+Creates a new session for the current week with initialized memo template.
 
-The master script creates the entire platform structure:
-
-```bash
-bash scripts/ONE_SCRIPT_ALL.sh
-```
-
-This generates:
-- All helper scripts in `scripts/`
-- Operator loop scripts in `scripts/operator_loop/`
-- Tier-2 content pack in `core/content/interviews/soc_tier2_pack/`
-- Tier-3+ content pack in `core/content/interviews/soc_tier3_pack/`
-- Documentation in `docs/`
-
-### Run the Complete Pipeline
-
-```bash
-bash scripts/ONE_COMMAND_ALL.sh
-```
-
-This will:
-1. Seed Tier-2 interview pack
-2. Build 4-phase operator loop scaffolds
-3. Generate test sessions
-4. Create operator and instructor reports
-5. Run verification checks
-
-## Platform Components
-
-### Tier-2 (Scored Interview Practice)
-
-**Philosophy**: Signal-based rubric with deterministic branching
-
-**Content**:
-- Question bank with expected signals
-- Scoring rubric (Strong/Medium/Weak bands)
-- Branching rules based on response signals
-- Debrief templates
-
-**Usage**:
-```bash
-bash scripts/soc_tier2_interview_pack.sh
-```
-
-### Tier-3+ (Judgment Development)
-
-**Philosophy**: Non-scoring evaluation of judgment under ambiguity
-
-**Evaluates**:
-- Tradeoff clarity (what you sacrifice and why)
-- Authority distribution (compress vs distribute)
-- Pause opportunity design (where to slow down)
-- Trust repair planning (social cost)
-- Evidence discipline (known/unknown/assumed)
-
-**Does NOT**:
-- No numeric scores
-- No grades or leaderboards
-- No opaque ML models
-
-**Key Scenarios** (4 included):
-1. `momentum_bias_trust_break` - Business halt with trust break
-2. `regulator_board_collision` - Stakeholder conflict during incident
-3. `insider_threat_false_positive` - Social repair cost exercise
-4. `audit_timebomb_migration` - Scope creep blindness pattern
-
-### 4-Phase Operator Development Loop
-
-#### Phase 1: Weekly Pressure Run (45 minutes)
-
-```bash
-bash scripts/operator_loop/run_weekly_pressure.sh \
-  momentum_bias_trust_break \
-  2026-W01 \
-  "Your Name"
-```
-
-Creates a memo skeleton in `core/app_data/interviews/exports/`
-
-#### Phase 2: Quarterly Pattern Measurement
-
-```bash
-bash scripts/operator_loop/quarterly_review.sh 2026-Q1
-```
-
-Answers 3 questions:
+### Phase 2: Quarterly Pattern Measurement
+Scaffolds a pattern review with the 3 critical questions:
 1. Did I name the tradeoff before acting?
-2. Did I protect trust explicitly or omit it?
-3. Did authority compress or distribute under pressure?
+2. Did I explicitly protect trust?
+3. Did authority compress or distribute?
 
-#### Phase 3: Promote Doctrine (Pattern → Gate)
+### Phase 3: Doctrine Promotion
+Creates a pre-action gate file (idempotent, won't overwrite).
 
+### Phase 4: Tier-4 Check
+Reports unlock status (locked by default, requires 2 quarters of stable patterns).
+
+---
+
+## 4 Tier-3+ Scenarios Included
+
+### 1. Momentum Bias Trust Break
+**Targets**: Momentum bias, over-reliance on trusted group, dismissal of early signals  
+**Context**: Post-acquisition integration, rollback mismatch, exec pressure to restore billing
+
+### 2. Regulator Board Collision
+**Targets**: Over-optimistic assurance, stakeholder misalignment, authority compression  
+**Context**: Active incident with competing demands from regulator and board
+
+### 3. Insider Threat False Positive
+**Targets**: Confirmation bias, social repair planning, evidence discipline  
+**Context**: Flagged senior engineer, ambiguous signal, reputational blast radius
+
+### 4. Audit Timebomb Migration
+**Targets**: Scope creep blindness, rushed cutover, tradeoff clarity  
+**Context**: System migration with audit deadline, incomplete validation
+
+---
+
+## Customization
+
+### Set Operator Name
 ```bash
-bash scripts/operator_loop/promote_doctrine.sh 2026-Q1 \
-  "Before irreversible action: state tradeoff + name integrity owner + call 5-minute pause"
+OPERATOR_NAME="Your Name" bash ONE_SCRIPT_ALL.sh
 ```
 
-Promotes repeated misses into enforceable gates.
-
-#### Phase 4: Verify Gates
-
+### Set Specific Week
 ```bash
-bash scripts/operator_loop/verify_gates.sh
+WEEK_ID="2026-W05" bash ONE_SCRIPT_ALL.sh
 ```
 
-Validates that gates and constraints are in place.
-
-## Reporting Tools (Option D)
-
-### Operator Development Report
-
+### Set Quarter
 ```bash
-bash scripts/operator_development_report.sh \
-  core/app_data/interviews/exports \
-  reports/operator_report.md
+QUARTER_ID="2026-Q2" bash ONE_SCRIPT_ALL.sh
 ```
 
-### Instructor Report
-
+### All Together
 ```bash
-bash scripts/instructor_report_from_exports.sh \
-  core/app_data/interviews/exports \
-  reports/instructor_report.md \
-  reports/instructor_report.csv
+OPERATOR_NAME="Stephen" WEEK_ID="2026-W05" QUARTER_ID="2026-Q2" bash ONE_SCRIPT_ALL.sh
 ```
 
-### Trend Analysis
+---
 
-```bash
-bash scripts/operator_trend_analysis.sh \
-  reports/q1_report.md \
-  reports/q2_report.md \
-  reports/trends.md
-```
-
-## Building Installers
-
-```bash
-# Clean build
-CLEAN=1 bash scripts/package_installers.sh
-
-# Fast rebuild (skip npm ci)
-SKIP_NPM_CI=1 bash scripts/package_installers.sh
-```
-
-Outputs:
-- Windows: `core/src-tauri/target/release/bundle/msi/`
-- macOS: `core/src-tauri/target/release/bundle/dmg/`
-- Linux: `core/src-tauri/target/release/bundle/deb/` (or rpm/AppImage)
-
-## Export & Backup
-
-### PDF Export
-
-```bash
-bash scripts/export_debrief_to_pdf.sh \
-  core/app_data/interviews/exports/session_123/debrief.md
-```
-
-### Google Drive Backup (Optional)
-
-```bash
-# One-time setup
-rclone config
-
-# Backup
-GDRIVE_REMOTE=gdrive \
-GDRIVE_BASE_DIR=LifelongCatchCorrect \
-bash scripts/gdrive_backup_release.sh
-```
-
-## Directory Structure
+## File Structure
 
 ```
 .
-├── core/
-│   ├── app_data/interviews/exports/    # Session exports
-│   ├── content/interviews/
-│   │   ├── soc_tier2_pack/             # Tier-2 content
-│   │   └── soc_tier3_pack/             # Tier-3+ content
-│   │       ├── scenarios/              # 4 scenarios
-│   │       ├── philosophy/             # Evaluation philosophy
-│   │       └── artifacts/templates/    # Memo templates
-│   └── src-tauri/                      # Tauri desktop app
+├── ONE_SCRIPT_ALL.sh                    # Single-command bootstrap
+├── QUICKSTART.md                        # Detailed usage guide
+├── LICENSE
+├── README.md
 ├── scripts/
-│   ├── ONE_SCRIPT_ALL.sh              # Master generator
-│   ├── ONE_COMMAND_ALL.sh             # Complete pipeline
-│   ├── operator_loop/                  # 4-phase loop scripts
-│   ├── package_installers.sh           # Tauri build
-│   ├── export_debrief_to_pdf.sh       # PDF export
-│   └── *_report*.sh                    # Reporting tools
+│   ├── VERIFY_RELEASE.sh                # Sanity check
+│   └── operator_loop/
+│       ├── verify_gates.sh              # Gate verification
+│       └── pre_action_gate.txt          # Doctrine gate (generated)
 ├── docs/
-│   ├── TIER3_PLUS_PHASES.md           # 4-phase documentation
-│   └── TIER3_QUARTER_CONSTRAINT.txt   # Current constraint
-└── reports/                            # Generated reports
+│   ├── GETTING_STARTED.md
+│   └── TIER3_PLUS_PHASES.md             # 4-phase documentation
+├── core/
+│   ├── app_data/interviews/exports/     # Session memos (generated)
+│   └── content/interviews/soc_tier3_pack/
+│       ├── scenarios/                   # 4 scenarios (YAML)
+│       ├── philosophy/                  # Evaluation philosophy
+│       └── artifacts/templates/         # Memo template
+└── reports/                             # Pattern reviews (generated)
 ```
 
-## Architecture Principles
+---
 
-1. **Offline-first**: No runtime network dependencies
-2. **Deterministic**: Same inputs → same outputs
-3. **Idempotent**: Scripts safe to re-run
-4. **Fail-fast**: Clear error messages, no silent failures
-5. **Privacy-focused**: No telemetry, analytics, or tracking
-6. **Local-first**: All data stays on user's machine
+## Verification
 
-## New Chat Continuation
+### Check All 4 Scenarios
+```bash
+ls -la core/content/interviews/soc_tier3_pack/scenarios/
+```
+
+Expected output:
+```
+momentum_bias_trust_break.yml
+regulator_board_collision.yml
+insider_threat_false_positive.yml
+audit_timebomb_migration.yml
+```
+
+### Run Verification Scripts
+```bash
+bash scripts/VERIFY_RELEASE.sh
+bash scripts/operator_loop/verify_gates.sh
+```
+
+---
+
+## Philosophy
+
+### Non-Scoring Judgment Development
+
+**Evaluates**:
+- ✓ Tradeoff clarity (what you sacrifice and why)
+- ✓ Authority distribution (compress vs distribute)
+- ✓ Pause opportunity design (where to slow down)
+- ✓ Trust repair planning (social cost)
+- ✓ Evidence discipline (known/unknown/assumed)
+
+**Does NOT**:
+- ✗ Numeric scores
+- ✗ Grades or bands
+- ✗ Leaderboards
+- ✗ Opaque ML models
+
+### Success Metrics
+
+A strong memo includes:
+- ✓ Tradeoff stated before irreversible action
+- ✓ Pause designed and executed
+- ✓ Authority distributed (R/A/C/I defined)
+- ✓ Trust repair plan explicit
+- ✓ Operator bias named + micro-rule enforceable
+
+---
+
+## Privacy & Offline Guarantees
+
+- ✅ **No network calls** during execution
+- ✅ **No telemetry** or analytics
+- ✅ **No external dependencies** (pure bash)
+- ✅ **All data local** (exports, reports, memos)
+- ✅ **Backup opt-in only** (explicit `ENABLE_GDRIVE_BACKUP=1`)
+
+---
+
+## Optional: Google Drive Backup
+
+**Private by default.** To enable:
 
 ```bash
-bash scripts/rube_new_chat_prompt.sh
+# One-time: configure rclone
+rclone config
+
+# Enable backup on each run
+ENABLE_GDRIVE_BACKUP=1 bash ONE_SCRIPT_ALL.sh
 ```
 
-Prints (and optionally copies to clipboard) a continuation prompt with full context.
+---
 
-## License
+## Documentation
 
-MIT License
+- **[QUICKSTART.md](QUICKSTART.md)** - Detailed quick start guide
+- **[GETTING_STARTED.md](docs/GETTING_STARTED.md)** - Step-by-step walkthrough
+- **[TIER3_PLUS_PHASES.md](docs/TIER3_PLUS_PHASES.md)** - 4-phase loop documentation
+- **[Evaluation Philosophy](core/content/interviews/soc_tier3_pack/philosophy/tier3_evaluation_philosophy.md)** - Non-scoring judgment criteria
+
+---
 
 ## Contributing
 
 Contributions welcome! Extend with:
-- New Tier-3+ scenarios
-- Additional reporting metrics
-- UI improvements
-- New export formats
+- New Tier-3+ scenarios (YAML files)
+- Additional verification scripts
+- Documentation improvements
+- Reporting enhancements
+
+See **[Issue #1](https://github.com/quantam101/soc-operator-training-platform/issues/1)** for implementation roadmap.
 
 ---
 
-**Built for offline SOC operator development. No cloud dependencies. Full privacy.**
+## License
+
+MIT License - See [LICENSE](LICENSE)
+
+---
+
+**Built for offline SOC operator development.**  
+**Zero scoring. Maximum judgment. Complete privacy.**
