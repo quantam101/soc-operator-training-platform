@@ -7,55 +7,51 @@ timebox_minutes:
   pressure: 45
 
 targets:
-  - "Scope creep blindness (gradual standards erosion)"
-  - "Rushed cutover (exec pressure compresses validation)"
-  - "Tradeoff clarity (timeline vs audit defensibility)"
-  - "Team trust preservation (acquired team inclusion)"
+  - "Scope creep blindness (migration expanding beyond original plan)"
+  - "Rushed cutover under deadline pressure"
+  - "Tradeoff clarity (speed vs audit defensibility)"
+  - "Acquired team alignment (social contract during merger)"
 
 context:
-  - "Post-acquisition: migrating acquired company's ERP to parent company platform"
-  - "Audit window in 7 days; cutover planned for day before"
-  - "Legacy mapping incomplete; 15% of GL accounts unmapped"
-  - "Exec pressure: 'We promised board this would be done this quarter'"
-  - "Acquired team warns: 'We need more time to validate'"
-  - "If cutover fails: audit findings, revenue restatement risk, loss of acquired team trust"
+  - "Post-acquisition: migrating acquired company's financial system"
+  - "Audit window in 7 days; deadline cannot move (regulatory requirement)"
+  - "Legacy system mapping incomplete; edge cases still being discovered"
+  - "Exec pressure: go-live to consolidate billing"
+  - "Acquired team concerned about data integrity; parent company wants speed"
 
 phases:
   - name: "Tradeoff"
-    prompt: "State the tradeoff explicitly: timeline vs audit defensibility. Who must accept the residual risk if you proceed?"
-    injects:
-      - "CFO: 'We can't miss this deadline.'"
-      - "Acquired team lead: 'We're not confident in the mapping.'"
+    prompt: "State the tradeoff explicitly: timeline vs audit defensibility. Who accepts the residual risk?"
+
+  - name: "Scope reality"
+    prompt: "List what's incomplete. What's the minimum viable cutover that keeps audit posture intact?"
 
   - name: "Authority"
-    prompt: "Who can stop the launch? Who signs the audit posture? Who is accountable if revenue must be restated?"
+    prompt: "Who can stop the launch? Who signs the audit posture? Define R/A/C/I."
 
-  - name: "Plan"
-    prompt: "Design a validated cutover path with explicit pause gates. What must be true before each gate?"
+  - name: "Gated cutover"
+    prompt: "Design a cutover path with explicit pause gates. What triggers a rollback?"
 
-  - name: "Trust"
-    prompt: "The acquired team feels rushed and unheard. How do you keep them aligned, preserve their autonomy, and prevent talent flight?"
-
-  - name: "Doctrine"
-    prompt: "Write the micro-rule for next time: when do you refuse to proceed with incomplete validation?"
+  - name: "Team trust"
+    prompt: "The acquired team is raising concerns but feels unheard. How do you keep them aligned and preserve social contract?"
 
 success_criteria:
-  - "Tradeoff stated before irreversible action"
-  - "Gated cutover with explicit pass/fail criteria"
-  - "Authority distributed (CFO signs risk, not operator)"
-  - "Acquired team trust preserved (voice + autonomy)"
-  - "Audit defensibility explicit"
+  - "Tradeoff stated (speed vs audit risk)"
+  - "Minimum viable scope defined (audit defensible)"
+  - "Authority clear (who can stop, who signs audit posture)"
+  - "Gated cutover with pause/rollback triggers"
+  - "Acquired team trust preserved (heard + included)"
 
 notes: |
-  This scenario targets:
-  - Scope creep blindness: gradual erosion of standards under exec pressure
-  - Rushed cutover: timeline pressure overrides validation discipline
-  - Tradeoff opacity: proceed without naming what is being traded
-  - Team trust erosion: acquired team feels unheard, loses confidence
+  This scenario targets scope creep blindness and merger social dynamics:
+  - Under exec pressure, teams skip validation steps
+  - Audit risk materializes slowly, then suddenly
+  - Acquired team feels steamrolled by parent company
+  - Social contract breaks if concerns dismissed
 
   Good response includes:
-  - Explicit tradeoff: "Trading audit defensibility for timeline commitment"
-  - Gated cutover: "Gate 1: 100% GL mapping. Gate 2: Parallel run validation. Gate 3: CFO sign-off."
-  - Authority: CFO signs audit risk, acquired team lead has veto on technical readiness
-  - Trust preservation: Acquired team has decision voice, not just advisory
-  - Micro-rule: "Before production cutover: 100% mapping complete OR CFO signs audit exception in writing"
+  - Tradeoff: "We trade speed for audit risk; CFO must accept"
+  - Minimum scope: "Core transactions only; edge cases deferred"
+  - Pause gates: "If validation fails, we pause for 24h triage"
+  - Acquired team: "Weekly validation session; veto power on data integrity"
+  - Micro-rule: "Before merger cutover: cross-team audit checklist sign-off"
