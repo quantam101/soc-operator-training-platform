@@ -1,0 +1,61 @@
+id: audit_timebomb_migration
+title: "Audit Timebomb During System Migration"
+tier: "3+"
+mode: ["baseline", "pressure"]
+timebox_minutes:
+  baseline: 60
+  pressure: 45
+
+targets:
+  - "Scope creep blindness (gradual standards erosion)"
+  - "Rushed cutover (exec pressure compresses validation)"
+  - "Tradeoff clarity (timeline vs audit defensibility)"
+  - "Team trust preservation (acquired team inclusion)"
+
+context:
+  - "Post-acquisition: migrating acquired company's ERP to parent company platform"
+  - "Audit window in 7 days; cutover planned for day before"
+  - "Legacy mapping incomplete; 15% of GL accounts unmapped"
+  - "Exec pressure: 'We promised board this would be done this quarter'"
+  - "Acquired team warns: 'We need more time to validate'"
+  - "If cutover fails: audit findings, revenue restatement risk, loss of acquired team trust"
+
+phases:
+  - name: "Tradeoff"
+    prompt: "State the tradeoff explicitly: timeline vs audit defensibility. Who must accept the residual risk if you proceed?"
+    injects:
+      - "CFO: 'We can't miss this deadline.'"
+      - "Acquired team lead: 'We're not confident in the mapping.'"
+
+  - name: "Authority"
+    prompt: "Who can stop the launch? Who signs the audit posture? Who is accountable if revenue must be restated?"
+
+  - name: "Plan"
+    prompt: "Design a validated cutover path with explicit pause gates. What must be true before each gate?"
+
+  - name: "Trust"
+    prompt: "The acquired team feels rushed and unheard. How do you keep them aligned, preserve their autonomy, and prevent talent flight?"
+
+  - name: "Doctrine"
+    prompt: "Write the micro-rule for next time: when do you refuse to proceed with incomplete validation?"
+
+success_criteria:
+  - "Tradeoff stated before irreversible action"
+  - "Gated cutover with explicit pass/fail criteria"
+  - "Authority distributed (CFO signs risk, not operator)"
+  - "Acquired team trust preserved (voice + autonomy)"
+  - "Audit defensibility explicit"
+
+notes: |
+  This scenario targets:
+  - Scope creep blindness: gradual erosion of standards under exec pressure
+  - Rushed cutover: timeline pressure overrides validation discipline
+  - Tradeoff opacity: proceed without naming what is being traded
+  - Team trust erosion: acquired team feels unheard, loses confidence
+
+  Good response includes:
+  - Explicit tradeoff: "Trading audit defensibility for timeline commitment"
+  - Gated cutover: "Gate 1: 100% GL mapping. Gate 2: Parallel run validation. Gate 3: CFO sign-off."
+  - Authority: CFO signs audit risk, acquired team lead has veto on technical readiness
+  - Trust preservation: Acquired team has decision voice, not just advisory
+  - Micro-rule: "Before production cutover: 100% mapping complete OR CFO signs audit exception in writing"
