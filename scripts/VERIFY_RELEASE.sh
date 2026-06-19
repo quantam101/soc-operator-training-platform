@@ -11,6 +11,7 @@ echo ""
 SCRIPTS_COUNT="$(find scripts -name "*.sh" -type f 2>/dev/null | wc -l | tr -d ' ')"
 OPERATOR_SCRIPTS="$(find scripts/operator_loop -name "*.sh" -type f 2>/dev/null | wc -l | tr -d ' ')"
 SCENARIOS="$(find core/content/interviews/soc_tier3_pack/scenarios -name "*.yml" 2>/dev/null | wc -l | tr -d ' ')"
+FAILURES=0
 
 echo "Scripts:"
 echo "  Total scripts: $SCRIPTS_COUNT"
@@ -21,21 +22,21 @@ echo "Content:"
 echo "  Tier-3+ scenarios: $SCENARIOS"
 echo ""
 
-# Check key files
 check_file(){
   local path="$1"
   local label="$2"
   if [ -f "$path" ]; then
-    echo "  ✓ $label"
+    echo "  PASS $label"
   else
-    echo "  ✗ $label (missing: $path)"
+    echo "  FAIL $label (missing: $path)"
+    FAILURES=$((FAILURES + 1))
   fi
 }
 
 echo "Core files:"
 check_file "README.md" "README"
 check_file "LICENSE" "LICENSE"
-check_file "scripts/ONE_SCRIPT_ALL.sh" "Master script"
+check_file "ONE_SCRIPT_ALL.sh" "Master script"
 echo ""
 
 echo "Documentation:"
@@ -50,18 +51,23 @@ check_file "core/content/interviews/soc_tier3_pack/scenarios/insider_threat_fals
 check_file "core/content/interviews/soc_tier3_pack/scenarios/audit_timebomb_migration.yml" "Scenario 4: Audit Timebomb"
 echo ""
 
-echo "=== Verification Complete ==="
-echo ""
-
-if [ "$SCENARIOS" -eq 4 ]; then
-  echo "✓ All 4 Tier-3+ scenarios present"
+if [ "$SCENARIOS" -ne 4 ]; then
+  echo "FAIL Expected 4 scenarios, found $SCENARIOS"
+  FAILURES=$((FAILURES + 1))
 else
-  echo "! Expected 4 scenarios, found $SCENARIOS"
+  echo "PASS All 4 Tier-3+ scenarios present"
 fi
 
 echo ""
-echo "Next steps:"
-echo "  1. Clone repository locally"
-echo "  2. Run: bash scripts/ONE_SCRIPT_ALL.sh"
-echo "  3. Run: bash scripts/ONE_COMMAND_ALL.sh"
-echo "  4. Run: bash scripts/operator_loop/verify_gates.sh"
+echo "Recommended verification commands:"
+echo "  bash scripts/VERIFY_RELEASE.sh"
+echo "  bash ONE_SCRIPT_ALL.sh"
+echo "  bash scripts/operator_loop/verify_gates.sh"
+echo ""
+
+if [ "$FAILURES" -gt 0 ]; then
+  echo "=== Verification Failed: $FAILURES issue(s) ==="
+  exit 1
+fi
+
+echo "=== Verification Complete: PASS ==="
