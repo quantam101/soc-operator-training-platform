@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Shell syntax check
+        run: |
+          bash -n ONE_SCRIPT_ALL.sh
+          bash -n scripts/VERIFY_RELEASE.sh
+          bash -n scripts/operator_loop/verify_gates.sh
+
+      - name: Release verification
+        run: bash scripts/VERIFY_RELEASE.sh
+
+      - name: One command smoke test
+        run: bash ONE_SCRIPT_ALL.sh
+
+      - name: Gate verification
+        run: bash scripts/operator_loop/verify_gates.sh
